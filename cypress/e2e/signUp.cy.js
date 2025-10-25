@@ -10,15 +10,15 @@ describe('Sign Up page', () => {
     const user = generateUser();
 
     // Wejdź na stronę Sign Up
-    cy.visit('/user/register');
+    cy.visit('/#/register');
 
     // Wypełnij formularz
-    cy.get('[data-cy="username-sign-up"]').type(user.username);
-    cy.get('[data-cy="email-sign-up"]').type(user.email);
-    cy.get('[data-cy="password-sign-up"]').type(user.password);
+    cy.get('input[placeholder="Username"]').type(user.username);
+    cy.get('input[placeholder="Email"]').type(user.email);
+    cy.get('input[placeholder="Password"]').type(user.password);
 
     // Kliknij przycisk Sign Up
-    cy.get('[data-cy="sign-up-btn"]').click();
+    cy.get('button[type="submit"]').click();
 
     // Sprawdź, czy username pojawia się w nagłówku
     homePage.assertHeaderContainUsername(user.username);
